@@ -50,3 +50,5 @@ Temporary Items
 .jar
 .class
 .properties
+.idea
+/target
