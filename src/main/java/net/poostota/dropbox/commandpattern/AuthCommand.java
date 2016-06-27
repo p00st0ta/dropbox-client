@@ -1,4 +1,7 @@
-package net.poostota.dropbox;
+package net.poostota.dropbox.commandpattern;
+
+import net.poostota.dropbox.AbstractImplementationClass;
+import net.poostota.dropbox.Auth;
 
 import java.io.IOException;
 
@@ -9,8 +12,8 @@ public class AuthCommand implements Command {
 
     private Auth auth;
 
-    public AuthCommand(Auth auth){
-        this.auth = auth;
+    public AuthCommand(AbstractImplementationClass auth){
+        this.auth = (Auth) auth;
     }
 
     public void execute() {

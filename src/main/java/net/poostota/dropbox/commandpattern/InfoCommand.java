@@ -1,6 +1,6 @@
-package net.poostota.dropbox;
+package net.poostota.dropbox.commandpattern;
 
-import net.poostota.dropbox.Command;
+import net.poostota.dropbox.AbstractImplementationClass;
 import net.poostota.dropbox.Info;
 
 /**
@@ -10,8 +10,8 @@ public class InfoCommand implements Command {
 
     private Info info;
 
-    public InfoCommand(Info info){
-        this.info = info;
+    public InfoCommand(AbstractImplementationClass info){
+        this.info = (Info) info;
     }
 
     public void execute() {

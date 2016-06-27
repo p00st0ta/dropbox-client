@@ -10,7 +10,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 25.05.2016.
  */
-public class Auth {
+public class Auth extends AbstractImplementationClass {
 
     private String APP_KEY;
     private String APP_SECRET;

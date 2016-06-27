@@ -1,6 +1,10 @@
 package net.poostota.dropbox;
 
 import com.dropbox.core.DbxException;
+import net.poostota.dropbox.commandpattern.Action;
+import net.poostota.dropbox.commandpattern.AuthCommand;
+import net.poostota.dropbox.commandpattern.InfoCommand;
+import net.poostota.dropbox.commandpattern.ListCommand;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -20,50 +24,32 @@ public class Main {
     private void command(String[] args) throws IOException, ParseException, DbxException {
 
         Action action = new Action();
+        Factory factory = new Factory(args);
+        AbstractImplementationClass implementationClass = factory.getInstance();
+        char command = args[0].toLowerCase().charAt(0);
 
-        if (args.length == 0){
+        switch (command){
 
-            helper();
-
-        } else if (args[0].toLowerCase().equals("auth") && args.length == 3){
-
-            Auth auth = new Auth(args[1], args[2]);
-            action.makeCommand(new AuthCommand(auth));
-
-        } else if (args[0].toLowerCase().equals("info") && args.length > 1 && args.length < 4) {
-
-            Info info;
-            if (args.length == 3){
-                info = new Info(args[1], args[2]);
-            } else {
-                info = new Info(args[1]);
-            }
-            action.makeCommand(new InfoCommand(info));
-
-        } else if (args[0].toLowerCase().equals("list") && args.length > 2 && args.length < 5){
-
-            List list;
-            if (args.length == 4){
-                list = new List(args[1], args[2], args[3]);
-            } else {
-                list = new List(args[1], args[2]);
-            }
-            action.makeCommand(new ListCommand(list));
-
-        } else {
-
-            helper();
+            case 'a':
+                action.makeCommand(new AuthCommand(implementationClass));
+                break;
+            case 'i':
+                action.makeCommand(new InfoCommand(implementationClass));
+                break;
+            case 'l':
+                action.makeCommand(new ListCommand(implementationClass));
+                break;
+            default:
+                helper();
 
         }
 
     }
 
-    private void helper() throws IOException {
+    public static void helper(){
 
         System.out.println("\n Dropbox client supports following commands:\n"
-                           +"\"auth\" with syntax: auth appKey appSecret\n"
-                           +"\"info\" with syntax: info accessToken locale(optional)\n"
-                           +"\"list\" with syntax: list accessToken path locale(optional)\n");
+        System.exit(0);
 
     }
 }

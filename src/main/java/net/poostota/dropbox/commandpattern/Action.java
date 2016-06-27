@@ -1,4 +1,4 @@
-package net.poostota.dropbox;
+package net.poostota.dropbox.commandpattern;
 
 /**
  * Created by pOOstOta on 31.05.2016.

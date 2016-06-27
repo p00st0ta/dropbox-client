@@ -15,7 +15,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 26.05.2016.
  */
-public class Info {
+public class Info extends AbstractImplementationClass{
 
     private String token;
     private String local;

@@ -15,7 +15,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 26.05.2016.
  */
-public class List {
+public class List extends AbstractImplementationClass {
 
     private String strUrl;
     private String token;
