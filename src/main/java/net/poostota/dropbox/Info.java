@@ -1,3 +1,5 @@
+package net.poostota.dropbox;
+
 import com.dropbox.core.DbxException;
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.InvalidAccessTokenException;

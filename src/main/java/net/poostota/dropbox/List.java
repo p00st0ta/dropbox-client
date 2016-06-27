@@ -1,3 +1,5 @@
+package net.poostota.dropbox;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.parser.ParseException;

@@ -1,3 +1,5 @@
+package net.poostota.dropbox;
+
 import com.dropbox.core.DbxException;
 import org.json.simple.parser.ParseException;
 

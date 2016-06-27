@@ -1,3 +1,5 @@
+package net.poostota.dropbox;
+
 import java.io.IOException;
 
 /**

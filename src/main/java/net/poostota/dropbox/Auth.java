@@ -1,3 +1,5 @@
+package net.poostota.dropbox;
+
 import com.dropbox.core.*;
 
 import java.io.BufferedReader;

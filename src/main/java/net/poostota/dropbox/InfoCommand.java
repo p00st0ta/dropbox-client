@@ -1,3 +1,8 @@
+package net.poostota.dropbox;
+
+import net.poostota.dropbox.Command;
+import net.poostota.dropbox.Info;
+
 /**
  * Created by pOOstOta on 31.05.2016.
  */

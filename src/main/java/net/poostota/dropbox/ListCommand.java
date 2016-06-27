@@ -1,3 +1,7 @@
+package net.poostota.dropbox;
+
+import net.poostota.dropbox.Command;
+import net.poostota.dropbox.List;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
