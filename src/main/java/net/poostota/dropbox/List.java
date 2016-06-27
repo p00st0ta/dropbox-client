@@ -113,7 +113,7 @@ public class List extends AbstractImplementationClass {
 
         if (!path.equals("/")){
             JsonNode jModified = node.get("modified");
-           modified  = jModified.asText();
+           modified  = jModified.asText().replace(" +0000", "");
         } else {
             modified = "";
         }
@@ -134,7 +134,7 @@ public class List extends AbstractImplementationClass {
         String fileMime = jFileMime.asText();
 
         JsonNode jFileModified = node.get("modified");
-        String fileModified = jFileModified.asText();
+        String fileModified = jFileModified.asText().replace(" +0000", "");
 
         return  filePath + " : " + "file, " + fileSize + ", " + fileMime + ", modified at: " + fileModified;
     }
