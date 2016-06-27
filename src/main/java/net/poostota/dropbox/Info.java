@@ -6,6 +6,7 @@ import com.dropbox.core.InvalidAccessTokenException;
 import com.dropbox.core.NetworkIOException;
 import com.dropbox.core.v2.DbxClientV2;
 import com.dropbox.core.v2.users.FullAccount;
+import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -15,7 +16,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 26.05.2016.
  */
-public class Info extends AbstractImplementationClass{
+public class Info extends AbstractImplementationClass {
 
     private String token;
     private String local;

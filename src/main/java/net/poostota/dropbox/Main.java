@@ -5,6 +5,8 @@ import net.poostota.dropbox.commandpattern.Action;
 import net.poostota.dropbox.commandpattern.AuthCommand;
 import net.poostota.dropbox.commandpattern.InfoCommand;
 import net.poostota.dropbox.commandpattern.ListCommand;
+import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
+import net.poostota.dropbox.factorypattern.Factory;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;

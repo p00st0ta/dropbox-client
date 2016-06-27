@@ -1,6 +1,6 @@
 package net.poostota.dropbox.commandpattern;
 
-import net.poostota.dropbox.AbstractImplementationClass;
+import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
 import net.poostota.dropbox.Info;
 
 /**

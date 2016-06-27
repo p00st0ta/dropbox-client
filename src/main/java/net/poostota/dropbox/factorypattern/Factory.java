@@ -1,4 +1,10 @@
-package net.poostota.dropbox;
+package net.poostota.dropbox.factorypattern;
+
+import net.poostota.dropbox.Auth;
+import net.poostota.dropbox.Info;
+import net.poostota.dropbox.List;
+import net.poostota.dropbox.Main;
+import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
 
 import java.io.IOException;
 

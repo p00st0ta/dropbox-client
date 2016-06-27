@@ -1,6 +1,7 @@
 package net.poostota.dropbox;
 
 import com.dropbox.core.*;
+import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
 
 import java.io.BufferedReader;
 import java.io.IOException;

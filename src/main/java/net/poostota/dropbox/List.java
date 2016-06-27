@@ -2,6 +2,7 @@ package net.poostota.dropbox;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
 import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
