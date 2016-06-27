@@ -49,6 +49,9 @@ public class Main {
     public static void helper(){
 
         System.out.println("\n Dropbox client supports following commands:\n"
+                          +"\"auth\" with syntax: auth appKey appSecret\n"
+                          +"\"info\" with syntax: info accessToken locale(optional)\n"
+                          +"\"list\" with syntax: list accessToken path locale(optional)\n");
         System.exit(0);
 
     }
