@@ -42,23 +42,18 @@ public class List extends AbstractImplementationClass {
         int responseCode;
 
         try {
+
             responseCode = connection.getResponseCode();
+
+            if (responseCode >= 400) {
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+                String error = reader.readLine();
+                System.out.println("\n" + parseError(error));
+                return;
+            }
         } catch (UnknownHostException e){
             System.out.println("\nUnable to make a connection, check connection then try again");
-            return;
-        }
-
-
-        if (responseCode == 400){
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-            String res = reader.readLine();
-            System.out.println("\nfield \"local\" was not expected\n" + res);
-            return;
-        } else if (responseCode == 401){
-            System.out.println("\nbad or expired access_token, you should re-authenticate");
-            return;
-        } else if (responseCode == 404){
-            System.out.println("\nfile not found, please try again");
             return;
         }
 
@@ -137,5 +132,14 @@ public class List extends AbstractImplementationClass {
         String fileModified = jFileModified.asText().replace(" +0000", "");
 
         return  filePath + " : " + "file, " + fileSize + ", " + fileMime + ", modified at: " + fileModified;
+    }
+
+    private String parseError(String error) throws IOException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode node = objectMapper.readValue(error, JsonNode.class);
+        JsonNode jError = node.get("error");
+
+        return jError.asText();
     }
 }
