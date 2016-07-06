@@ -16,7 +16,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 26.05.2016.
  */
-public class List extends AbstractImplementationClass {
+public class List implements AbstractImplementationClass {
 
     private String strUrl;
     private String token;
@@ -33,7 +33,7 @@ public class List extends AbstractImplementationClass {
     }
 
 
-    public void getList() throws IOException, ParseException {
+    public void runTheCommand() throws IOException, ParseException {
 
         URL url = new URL(strUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -47,7 +47,8 @@ public class List extends AbstractImplementationClass {
 
             if (responseCode >= 400) {
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(connection.getErrorStream()));
                 String error = reader.readLine();
                 System.out.println("\n" + parseError(error));
                 return;

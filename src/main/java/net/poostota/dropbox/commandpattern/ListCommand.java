@@ -1,7 +1,6 @@
 package net.poostota.dropbox.commandpattern;
 
 import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
-import net.poostota.dropbox.List;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -11,19 +10,18 @@ import java.io.IOException;
  */
 public class ListCommand implements Command {
 
-    private List list;
+
+    private AbstractImplementationClass list;
+
 
     public ListCommand(AbstractImplementationClass list){
-        this.list = (List) list;
+
+        this.list = list;
     }
 
-    public void execute() {
-        try {
-            list.getList();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+    public void execute() throws IOException, ParseException {
+
+        list.runTheCommand();
+
     }
 }

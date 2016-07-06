@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 25.05.2016.
  */
-public class Auth extends AbstractImplementationClass {
+public class Auth implements AbstractImplementationClass {
 
     private String APP_KEY;
     private String APP_SECRET;
@@ -22,7 +22,7 @@ public class Auth extends AbstractImplementationClass {
         this.APP_SECRET = APP_SECRET;
     }
 
-    public void getAuth() throws IOException {
+    public void runTheCommand() throws IOException {
 
         DbxAppInfo appInfo = new DbxAppInfo(APP_KEY,APP_SECRET);
         DbxRequestConfig dbxRequestConfig = new DbxRequestConfig("challenge", Locale.getDefault().toString());

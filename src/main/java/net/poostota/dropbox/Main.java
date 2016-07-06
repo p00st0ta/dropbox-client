@@ -20,14 +20,17 @@ public class Main {
     public static void main(String[] args) throws IOException, DbxException, ParseException {
 
         Main main = new Main();
+        main.checkArgs(args);
         main.command(args);
     }
+
 
     private void command(String[] args) throws IOException, ParseException, DbxException {
 
         Action action = new Action();
-        Factory factory = new Factory(args);
-        AbstractImplementationClass implementationClass = factory.getInstance();
+        Factory factory = new Factory();
+        AbstractImplementationClass implementationClass = factory.getInstance(args);
+
         char command = args[0].toLowerCase().charAt(0);
 
         switch (command){
@@ -43,12 +46,28 @@ public class Main {
                 break;
             default:
                 helper();
-
         }
 
     }
 
-    public static void helper(){
+    private void checkArgs(String[] args) {
+
+        if (args.length < 2) {
+            helper();
+        } else if (!args[0].toLowerCase().equals("auth") &&
+                   !args[0].toLowerCase().equals("info") &&
+                   !args[0].toLowerCase().equals("list")) {
+            helper();
+        } else if (args[0].toLowerCase().equals("auth") && args.length != 3) {
+            helper();
+        } else if (args[0].toLowerCase().equals("info") && args.length > 3) {
+            helper();
+        } else if (args[0].toLowerCase().equals("list") && args.length < 3 || args.length > 4) {
+            helper();
+        }
+    }
+
+    private void helper(){
 
         System.out.println("\n Dropbox client supports following commands:\n"
                           +"\"auth\" with syntax: auth appKey appSecret\n"

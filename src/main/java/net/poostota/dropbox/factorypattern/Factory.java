@@ -3,8 +3,6 @@ package net.poostota.dropbox.factorypattern;
 import net.poostota.dropbox.Auth;
 import net.poostota.dropbox.Info;
 import net.poostota.dropbox.List;
-import net.poostota.dropbox.Main;
-import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
 
 import java.io.IOException;
 
@@ -13,20 +11,18 @@ import java.io.IOException;
  */
 public class Factory {
 
-    AbstractImplementationClass instance;
+
+    private AbstractImplementationClass instance;
 
 
-    public Factory(String[] args) throws IOException {
+    public AbstractImplementationClass getInstance(String[] args) throws IOException {
 
-        if (args.length == 0){
 
-            Main.helper();
-
-        } else if (args[0].toLowerCase().equals("auth") && args.length == 3){
+        if (args[0].toLowerCase().equals("auth")){
 
             instance = new Auth(args[1], args[2]);
 
-        } else if (args[0].toLowerCase().equals("info") && args.length > 1 && args.length < 4) {
+        } else if (args[0].toLowerCase().equals("info")) {
 
             if (args.length == 3){
                 instance = new Info(args[1], args[2]);
@@ -34,23 +30,15 @@ public class Factory {
                 instance = new Info(args[1]);
             }
 
-        } else if (args[0].toLowerCase().equals("list") && args.length > 2 && args.length < 5){
+        } else if (args[0].toLowerCase().equals("list")){
 
             if (args.length == 4){
                 instance = new List(args[1], args[2], args[3]);
             } else {
                 instance = new List(args[1], args[2]);
             }
-
-        } else {
-
-            Main.helper();
-
         }
 
-    }
-
-    public AbstractImplementationClass getInstance(){
         return instance;
     }
 

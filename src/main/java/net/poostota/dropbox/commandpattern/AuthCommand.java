@@ -1,7 +1,7 @@
 package net.poostota.dropbox.commandpattern;
 
 import net.poostota.dropbox.factorypattern.AbstractImplementationClass;
-import net.poostota.dropbox.Auth;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
@@ -10,17 +10,18 @@ import java.io.IOException;
  */
 public class AuthCommand implements Command {
 
-    private Auth auth;
+
+    private AbstractImplementationClass auth;
+
 
     public AuthCommand(AbstractImplementationClass auth){
-        this.auth = (Auth) auth;
+
+        this.auth =  auth;
     }
 
-    public void execute() {
-        try {
-            auth.getAuth();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void execute() throws IOException, ParseException {
+
+        auth.runTheCommand();
+
     }
 }

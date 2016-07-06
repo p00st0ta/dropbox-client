@@ -16,7 +16,7 @@ import java.util.Locale;
 /**
  * Created by pOOstOta on 26.05.2016.
  */
-public class Info extends AbstractImplementationClass {
+public class Info implements AbstractImplementationClass {
 
     private String token;
     private String local;
@@ -32,7 +32,7 @@ public class Info extends AbstractImplementationClass {
         this.local = local;
     }
 
-    public void getInfo(){
+    public void runTheCommand(){
 
         DbxRequestConfig config = new DbxRequestConfig("DBC", local);
         DbxClientV2 clientV2 = new DbxClientV2(config, token);
@@ -41,9 +41,9 @@ public class Info extends AbstractImplementationClass {
             FullAccount account = clientV2.users().getCurrentAccount();
             infoParse(account);
         } catch (InvalidAccessTokenException e) {
-            System.out.println("\nbad or expired access_token, you should re-authenticate");
+            System.out.println("\nThe given OAuth 2 access token doesn't exist or has expired.");
         } catch (NetworkIOException e) {
-            System.out.println("\nplease, check your connection and try again");
+            System.out.println("\nUnable to make a connection, check connection then try again");
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (DbxException e) {
