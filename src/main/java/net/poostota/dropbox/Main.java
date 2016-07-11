@@ -31,17 +31,17 @@ public class Main {
         Factory factory = new Factory();
         AbstractImplementationClass implementationClass = factory.getInstance(args);
 
-        char command = args[0].toLowerCase().charAt(0);
+        String command = args[0];
 
-        switch (command){
+        switch (command.toLowerCase()){
 
-            case 'a':
+            case "auth":
                 action.makeCommand(new AuthCommand(implementationClass));
                 break;
-            case 'i':
+            case "info":
                 action.makeCommand(new InfoCommand(implementationClass));
                 break;
-            case 'l':
+            case "list":
                 action.makeCommand(new ListCommand(implementationClass));
                 break;
             default:
